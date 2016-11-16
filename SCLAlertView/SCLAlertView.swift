@@ -307,7 +307,8 @@ open class SCLAlertView: UIViewController {
         view.frame.size = sz
         
         // get actual height of title text
-        let titleActualHeight = labelTitle.text!.heightWithConstrainedWidth(appearance.kWindowWidth - 24, font: labelTitle.font) + 10
+        let titleActualHeight = labelTitle.text!.heightWithConstrainedWidth(width: appearance.kWindowWidth - 24, font: labelTitle.font) + 10
+
         
         // get the larger height for the title text
         let titleReservedHeight = (titleActualHeight > appearance.kTitleHeight ? titleActualHeight : appearance.kTitleHeight)
@@ -670,7 +671,7 @@ open class SCLAlertView: UIViewController {
         // Title
         if !title.isEmpty {
             self.labelTitle.text = title
-            let actualHeight = title.heightWithConstrainedWidth(appearance.kWindowWidth - 24, font: self.labelTitle.font)
+            let titleActualHeight = labelTitle.text!.heightWithConstrainedWidth(width: appearance.kWindowWidth - 24, font: labelTitle.font) + 10
             self.labelTitle.frame = CGRect(x:12, y:appearance.kTitleTop, width: appearance.kWindowWidth - 24, height:actualHeight)
         }
         
